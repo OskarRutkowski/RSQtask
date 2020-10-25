@@ -1,12 +1,14 @@
 import React from 'react';
-import './game.css';
-import Brick from '../components/brick';
-import { checkLevel, initTable } from '../components/helpers';
+import '../styles/game.css';
+import { initTable } from '../components/helpers';
+import TopNavigation from '../components/top-navigation';
+import PlayField from '../components/play-field';
 
 class Game extends React.Component {
   state = {
     playTable: [],
     score: 0,
+    incomingScore: 0,
   };
 
   componentDidMount() {
@@ -32,74 +34,26 @@ class Game extends React.Component {
     const { score } = this.state;
     this.setState({
       score: score + value,
+      incomingScore: value,
     });
-  };
-
-  refillColumns = (currentArea) => {
-    const { level } = this.props.match.params;
-    const { playTable } = this.state;
-    let tempTable = playTable;
-    playTable.forEach((rows) => {
-      rows.forEach((rowItem) => {
-        if (
-          currentArea.find(
-            (item) => rowItem.x === item.x && rowItem.y === item.y
-          )
-        ) {
-          for (let u = rowItem.x; u >= 0; u--) {
-            if (u - 1 < 0) {
-              tempTable[u][rowItem.y].colorKey = Math.floor(
-                Math.random() * checkLevel(level).randomNum
-              );
-            } else {
-              tempTable[u][rowItem.y].colorKey =
-                tempTable[u - 1][rowItem.y].colorKey;
-            }
-          }
-        }
-      });
-    });
-    this.setPlayTable(tempTable);
-    this.setScore(currentArea.length);
   };
 
   render() {
     const { level } = this.props.match.params;
-    const { playTable, score } = this.state;
-    let temp = playTable;
+    const { playTable, score, incomingScore } = this.state;
     return (
       <div className="App">
-        <div class="topnav">
-          <a
-            class="active"
-            href="/"
-            style={{ backgroundColor: checkLevel(level).color }}
-          >
-            <i class="fas fa-angle-double-left"></i>
-          </a>
-          <div class="score-container">{score}</div>
-        </div>
-        <div className="play-field">
-          {temp.map((rows) => {
-            return (
-              <div className="rows">
-                {rows.map((row) => {
-                  return (
-                    <Brick
-                      colorKey={row.colorKey}
-                      x={row.x}
-                      y={row.y}
-                      table={temp}
-                      removeConnected={(currentArea) =>
-                        this.refillColumns(currentArea)
-                      }
-                    />
-                  );
-                })}
-              </div>
-            );
-          })}
-        </div>
+        <TopNavigation
+          score={score}
+          level={level}
+          incomingScore={incomingScore}
+        />
+        <PlayField
+          level={level}
+          playTable={playTable}
+          setPlayTable={(playTable) => this.setPlayTable(playTable)}
+          setScore={(score) => this.setScore(score)}
+        />
       </div>
     );
   }

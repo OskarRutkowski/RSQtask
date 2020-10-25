@@ -35,13 +35,12 @@ const fulfillArray = (length, table, colorLevel) => {
   return table;
 };
 
-// TODO: change level
 const initTable = (level) => {
   let table, newTable;
   switch (level) {
     case 'easy':
       newTable = initArray(5);
-      table = fulfillArray(5, newTable, 2);
+      table = fulfillArray(5, newTable, 3);
       break;
     case 'mid':
       newTable = initArray(7);

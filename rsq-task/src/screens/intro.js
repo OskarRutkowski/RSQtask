@@ -1,5 +1,5 @@
 import React from 'react';
-import './intro.css';
+import '../styles/intro.css';
 import { Link } from 'react-router-dom';
 
 class Intro extends React.Component {

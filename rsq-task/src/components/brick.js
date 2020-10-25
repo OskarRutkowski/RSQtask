@@ -1,5 +1,5 @@
 import React from 'react';
-import './brick.css';
+import '../styles/brick.css';
 
 class Brick extends React.Component {
   state = {

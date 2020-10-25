@@ -1,7 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Brick from './components/brick';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Game from './screens/game';
 import Intro from './screens/intro';

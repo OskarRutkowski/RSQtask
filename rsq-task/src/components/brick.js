@@ -6,7 +6,7 @@ class Brick extends React.Component {
     currentArea: [],
   };
 
-  setCurrentArea = (connectedNeighbor) => {
+  addToCurrentArea = (connectedNeighbor) => {
     const { currentArea } = this.state;
     let temp = currentArea;
     if (
@@ -34,6 +34,10 @@ class Brick extends React.Component {
         return '#0081AF';
       case 4:
         return '#FF4A1C';
+      case 5:
+        return '#922D50';
+      case 6:
+        return '#2B4162';
       default:
         return '#000';
     }
@@ -53,7 +57,7 @@ class Brick extends React.Component {
           !oldPropTable.find((element) => element.x === x && element.y === y) // if block is not the one from which recurse comes
         ) {
           if (myArray[x][y].colorKey === myArray[i][j].colorKey) {
-            this.setCurrentArea({
+            this.addToCurrentArea({
               colorKey: myArray[x][y].colorKey,
               x: x,
               y: y,
@@ -73,8 +77,6 @@ class Brick extends React.Component {
     const rowLimit = myArray.length - 1;
     const columnLimit = myArray[0].length - 1;
 
-    this.setCurrentArea({ colorKey: myArray[i][j].colorKey, x: i, y: j }); // add clicked block
-
     for (var x = Math.max(0, i - 1); x <= Math.min(i + 1, rowLimit); x++) {
       for (var y = Math.max(0, j - 1); y <= Math.min(j + 1, columnLimit); y++) {
         if (
@@ -85,7 +87,7 @@ class Brick extends React.Component {
           (x !== i - 1 || y !== j + 1) // if block is not diagonally
         ) {
           if (myArray[x][y].colorKey === myArray[i][j].colorKey) {
-            this.setCurrentArea({
+            this.addToCurrentArea({
               colorKey: myArray[x][y].colorKey,
               x: x,
               y: y,
@@ -95,7 +97,12 @@ class Brick extends React.Component {
         }
       }
     }
+    if (this.state.currentArea.length > 0) {
+      this.addToCurrentArea({ colorKey: myArray[i][j].colorKey, x: i, y: j }); // add clicked block
+    }
+    console.log('CURRENTAREA', this.state.currentArea);
     removeConnected(this.state.currentArea);
+    this.setState({ currentArea: [] });
   }
 
   render() {

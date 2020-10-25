@@ -100,7 +100,6 @@ class Brick extends React.Component {
     if (this.state.currentArea.length > 0) {
       this.addToCurrentArea({ colorKey: myArray[i][j].colorKey, x: i, y: j }); // add clicked block
     }
-    console.log('CURRENTAREA', this.state.currentArea);
     removeConnected(this.state.currentArea);
     this.setState({ currentArea: [] });
   }

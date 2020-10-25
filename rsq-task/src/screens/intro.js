@@ -12,7 +12,7 @@ class Intro extends React.Component {
           <Link to="/easy">
             <button className="button-container button1">
               <div>
-                <i class="fas fa-umbrella-beach icon"></i>
+                <i className="fas fa-umbrella-beach icon"></i>
               </div>
               <div className="link-text">Easy</div>
             </button>
@@ -20,7 +20,7 @@ class Intro extends React.Component {
           <Link to="/mid">
             <button className="button-container button2">
               <div>
-                <i class="fas fa-book-reader icon"></i>
+                <i className="fas fa-book-reader icon"></i>
               </div>
               <div className="link-text">Mid</div>
             </button>
@@ -28,7 +28,7 @@ class Intro extends React.Component {
           <Link to="/hard">
             <button className="button-container button3">
               <div>
-                <i class="fas fa-mountain icon"></i>
+                <i className="fas fa-mountain icon"></i>
               </div>
               <div className="link-text">Hard</div>
             </button>

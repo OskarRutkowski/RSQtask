@@ -36,10 +36,11 @@ class PlayField extends React.Component {
       <div className="play-field">
         {playTable.map((rows) => {
           return (
-            <div className="rows">
+            <div key={`row-${rows[0].x}`} className="rows">
               {rows.map((row) => {
                 return (
                   <Brick
+                    key={`key-${row.x}-${row.y}`}
                     colorKey={row.colorKey}
                     x={row.x}
                     y={row.y}

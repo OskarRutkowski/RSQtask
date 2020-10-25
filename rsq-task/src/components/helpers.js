@@ -13,6 +13,10 @@ const checkLevel = (level) => {
       color = '#d57a66';
       randomNum = 7;
       break;
+    default:
+      color = '#d57a66';
+      randomNum = 1;
+      break;
   }
   return { color: color, randomNum: randomNum };
 };
@@ -49,6 +53,8 @@ const initTable = (level) => {
     case 'hard':
       newTable = initArray(10);
       table = fulfillArray(10, newTable, 7);
+      break;
+    default:
       break;
   }
   return table;

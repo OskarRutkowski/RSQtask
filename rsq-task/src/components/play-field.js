@@ -2,10 +2,17 @@ import React from 'react';
 import '../styles/play-field.css';
 import { checkLevel } from '../components/helpers';
 import Brick from '../components/brick';
+import { observer, inject } from 'mobx-react';
 
 class PlayField extends React.Component {
   refillColumns = (currentArea) => {
-    const { level, playTable, setPlayTable, setScore } = this.props;
+    const {
+      level,
+      playTable,
+      addScore,
+      setIncomingScore,
+      setTableColorField,
+    } = this.props.store;
     playTable.forEach((rows) => {
       rows.forEach((rowItem) => {
         if (
@@ -15,23 +22,28 @@ class PlayField extends React.Component {
         ) {
           for (let u = rowItem.x; u >= 0; u--) {
             if (u - 1 < 0) {
-              playTable[u][rowItem.y].colorKey = Math.floor(
-                Math.random() * checkLevel(level).randomNum
+              setTableColorField(
+                u,
+                rowItem.y,
+                Math.floor(Math.random() * checkLevel(level).randomNum)
               );
             } else {
-              playTable[u][rowItem.y].colorKey =
-                playTable[u - 1][rowItem.y].colorKey;
+              setTableColorField(
+                u,
+                rowItem.y,
+                playTable[u - 1][rowItem.y].colorKey
+              );
             }
           }
         }
       });
     });
-    setPlayTable(playTable);
-    setScore(currentArea.length);
+    addScore(currentArea.length);
+    setIncomingScore(currentArea.length);
   };
 
   render() {
-    const { playTable } = this.props;
+    const { playTable } = this.props.store;
     return (
       <div className="play-field">
         {playTable.map((rows) => {
@@ -44,7 +56,6 @@ class PlayField extends React.Component {
                     colorKey={row.colorKey}
                     x={row.x}
                     y={row.y}
-                    table={playTable}
                     removeConnected={(currentArea) =>
                       this.refillColumns(currentArea)
                     }
@@ -59,4 +70,4 @@ class PlayField extends React.Component {
   }
 }
 
-export default PlayField;
+export default inject('store')(observer(PlayField));

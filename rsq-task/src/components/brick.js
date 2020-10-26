@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/brick.css';
+import { observer, inject } from 'mobx-react';
+import { selectColor } from './helpers';
 
 class Brick extends React.Component {
   state = {
@@ -19,27 +21,6 @@ class Brick extends React.Component {
       this.setState({
         currentArea: temp,
       });
-    }
-  };
-
-  selectColor = (colorKey) => {
-    switch (colorKey) {
-      case 0:
-        return '#FB8F67';
-      case 1:
-        return '#F8E16C';
-      case 2:
-        return '#00C49A';
-      case 3:
-        return '#0081AF';
-      case 4:
-        return '#FF4A1C';
-      case 5:
-        return '#922D50';
-      case 6:
-        return '#2B4162';
-      default:
-        return '#000';
     }
   };
 
@@ -105,15 +86,16 @@ class Brick extends React.Component {
   }
 
   render() {
-    const { colorKey, x, y, table } = this.props;
+    const { colorKey, x, y } = this.props;
+    const { playTable } = this.props.store;
     return (
       <button
         className="brick-container"
-        style={{ backgroundColor: this.selectColor(colorKey) }}
-        onClick={() => this.findingNeighbors(table, x, y)}
+        style={{ backgroundColor: selectColor(colorKey) }}
+        onClick={() => this.findingNeighbors(playTable, x, y)}
       ></button>
     );
   }
 }
 
-export default Brick;
+export default inject('store')(observer(Brick));

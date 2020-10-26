@@ -2,10 +2,11 @@ import React from 'react';
 import '../styles/top-navigation.css';
 import { checkLevel } from '../components/helpers';
 import CountUp from 'react-countup';
+import { observer, inject } from 'mobx-react';
 
 class TopNavigation extends React.Component {
   render() {
-    const { score, incomingScore, level } = this.props;
+    const { score, incomingScore, level } = this.props.store;
     return (
       <div className="topnav">
         <a
@@ -30,4 +31,4 @@ class TopNavigation extends React.Component {
   }
 }
 
-export default TopNavigation;
+export default inject('store')(observer(TopNavigation));

@@ -21,6 +21,27 @@ const checkLevel = (level) => {
   return { color: color, randomNum: randomNum };
 };
 
+const selectColor = (colorKey) => {
+  switch (colorKey) {
+    case 0:
+      return '#FB8F67';
+    case 1:
+      return '#F8E16C';
+    case 2:
+      return '#00C49A';
+    case 3:
+      return '#0081AF';
+    case 4:
+      return '#FF4A1C';
+    case 5:
+      return '#922D50';
+    case 6:
+      return '#2B4162';
+    default:
+      return '#000';
+  }
+};
+
 const initArray = (length) => {
   let table = new Array(length);
   for (let i = 0; i < length; i++) {
@@ -60,4 +81,4 @@ const initTable = (level) => {
   return table;
 };
 
-export { checkLevel, initArray, fulfillArray, initTable };
+export { checkLevel, initArray, fulfillArray, initTable, selectColor };

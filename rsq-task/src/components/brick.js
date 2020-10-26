@@ -8,6 +8,10 @@ class Brick extends React.Component {
     currentArea: [],
   };
 
+  setCurrnetArea = (value) => {
+    this.setState({ currentArea: value });
+  };
+
   addToCurrentArea = (connectedNeighbor) => {
     const { currentArea } = this.state;
     let temp = currentArea;
@@ -18,9 +22,7 @@ class Brick extends React.Component {
       )
     ) {
       temp.push(connectedNeighbor);
-      this.setState({
-        currentArea: temp,
-      });
+      this.setCurrnetArea(temp);
     }
   };
 
@@ -82,7 +84,7 @@ class Brick extends React.Component {
       this.addToCurrentArea({ colorKey: myArray[i][j].colorKey, x: i, y: j }); // add clicked block
     }
     removeConnected(this.state.currentArea);
-    this.setState({ currentArea: [] });
+    this.setCurrnetArea([]);
   }
 
   render() {

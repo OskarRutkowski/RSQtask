@@ -6,7 +6,7 @@ class Intro extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <div className="welcome">Welcome to ClickColor game!</div>
+        <div className="welcome">Welcome to ClickColor The Game!</div>
         <div className="sub-welcome">Choose your difficulty level:</div>
         <div className="button-box">
           <Link to="/easy">

@@ -12,12 +12,8 @@ html {
 }
 .button-box {
   margin: 0;
-  top: 50%;
-  left: 50%;
 }
 .button-container {
-  width: 200px;
-  height: 200px;
   border: none;
   color: white;
   padding: 16px 32px;
@@ -34,7 +30,6 @@ html {
   text-decoration: none;
   color: #1a1a1a;
   padding: 10px;
-  font-size: 30px;
 }
 
 .button1 {
@@ -86,4 +81,59 @@ html {
   font-weight: 700;
   padding-bottom: 20px;
   text-align: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .button-container {
+    width: 100px;
+    height: 100px;
+  }
+  .link-text {
+    font-size: 10px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .button-container {
+    width: 100px;
+    height: 100px;
+  }
+  .link-text {
+    font-size: 10px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .button-container {
+    width: 150px;
+    height: 150px;
+  }
+  .link-text {
+    font-size: 15px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .button-container {
+    width: 150px;
+    height: 150px;
+  }
+  .link-text {
+    font-size: 15px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .button-container {
+    width: 200px;
+    height: 200px;
+  }
+  .link-text {
+    font-size: 30px;
+  }
 }

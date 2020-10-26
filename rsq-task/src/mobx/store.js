@@ -23,7 +23,7 @@ export default class GameStore {
   };
 
   clearPlayTable = () => {
-    this.playTable = [[]];
+    this.playTable = [];
   };
 
   addScore = (value) => {

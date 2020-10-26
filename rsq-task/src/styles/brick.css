@@ -4,8 +4,46 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  width: 50px;
-  height: 50px;
   margin-right: 1px;
   margin-left: 1px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .brick-container {
+    width: 33px;
+    height: 33px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .brick-container {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .brick-container {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .brick-container {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .brick-container {
+    width: 50px;
+    height: 50px;
+  }
 }

@@ -1,6 +1,7 @@
 .topnav {
   overflow: hidden;
   background-color: #2b4162;
+  flex-direction: row;
 }
 
 .active:hover {
@@ -17,6 +18,21 @@
   font-size: 17px;
 }
 
+.new-game {
+  color: white;
+  float: right;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.new-game:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 .score-container {
   text-align: center;
   vertical-align: middle;
@@ -26,7 +42,14 @@
 }
 
 .text {
-  text-align: center;
   color: white;
-  padding-left: 5px;
+  float: none;
+  text-align: center;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 25px;
+  left: 50%;
+}
+.text-container {
+  margin-top: 10px;
 }

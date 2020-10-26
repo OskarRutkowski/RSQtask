@@ -1,6 +1,6 @@
 # RSQtask
 
-> ClickColor The Game is web app. You can choose your difficulty level like: easy, mid and hard and than play the game! After clicking block color which has at least one neighbor, you can gain as many points as wide is connected blocks area. The higher difficulty level, the bigger play board and wider range of colors is.
+> ClickColor The Game is web app. You can choose your difficulty level like: easy, mid and hard and than play the game! After clicking block color which has at least one neighbor, you can gain as many points as wide is connected blocks area. The higher difficulty level, the bigger play board and wider range of colors is. You can also start a new game with New Game button placed in navigation tab.
 
 ### Clone
 
@@ -19,6 +19,7 @@ $ npm install
 ---
 
 ### Run
+
 ```shell
 $ npm start
 ```
@@ -27,10 +28,15 @@ Development server should start automatically on `http://localhost:3000/`
 
 ---
 
-
 ### How it works
 
 > After choosing difficulty level, playTable is created and fulfilled. Every block has their own {x,y} values and color type. At start of game every block is colored randomly. After clicking on block, function for finding neighbors is run in every direction (up, down, right, left) and than recursively again in further directions. If width of color area is more than 1, user score is updated and play board is rerendered.
+
+---
+
+### Demo
+
+`https://drive.google.com/file/d/1krcmkEnkPSloxakABhveooeCJrk2j5dk/view?usp=sharing`
 
 ---
 

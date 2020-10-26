@@ -27,10 +27,10 @@ class Brick extends React.Component {
   };
 
   recurseCheckNeighbors(myArray, i, j, oldPropTable) {
-    var rowLimit = myArray.length - 1;
-    var columnLimit = myArray[0].length - 1;
-    for (var x = Math.max(0, i - 1); x <= Math.min(i + 1, rowLimit); x++) {
-      for (var y = Math.max(0, j - 1); y <= Math.min(j + 1, columnLimit); y++) {
+    const rowLimit = myArray.length - 1;
+    const columnLimit = myArray[0].length - 1;
+    for (let x = Math.max(0, i - 1); x <= Math.min(i + 1, rowLimit); x++) {
+      for (let y = Math.max(0, j - 1); y <= Math.min(j + 1, columnLimit); y++) {
         if (
           (x !== i || y !== j) && // if block is not clicked block
           (x !== i + 1 || y !== j - 1) && // if block is not diagonally
@@ -60,8 +60,8 @@ class Brick extends React.Component {
     const rowLimit = myArray.length - 1;
     const columnLimit = myArray[0].length - 1;
 
-    for (var x = Math.max(0, i - 1); x <= Math.min(i + 1, rowLimit); x++) {
-      for (var y = Math.max(0, j - 1); y <= Math.min(j + 1, columnLimit); y++) {
+    for (let x = Math.max(0, i - 1); x <= Math.min(i + 1, rowLimit); x++) {
+      for (let y = Math.max(0, j - 1); y <= Math.min(j + 1, columnLimit); y++) {
         if (
           (x !== i || y !== j) && // if block is not clicked block
           (x !== i + 1 || y !== j - 1) && // if block is not diagonally
